@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Highland Adventures - Scotland Travel Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <title>Mad Coo Travel</title>
     <style>
         * {
             margin: 0;
@@ -12,8 +16,10 @@
         }
 
         :root {
+            --main-font: 'Inter', sans-serif;
+            --logo-font: 'Uncial Antiqua', serif;
             --highland-green: #2D5016;
-            --thistle-purple: #8B6F8B;
+            --thistle-purple: #513551;
             --heather-purple: #967BB6;
             --tartan-blue: #1E3A8A;
             --stone-grey: #6B7280;
@@ -23,7 +29,7 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
+            font-family: var(--main-font);
             line-height: 1.6;
             color: var(--highland-green);
             background: linear-gradient(135deg, var(--mist-white) 0%, #E2E8F0 100%);
@@ -78,7 +84,7 @@
 
         .cta-button {
             display: inline-block;
-            background: linear-gradient(45deg, var(--amber-gold), #F59E0B);
+            background: linear-gradient(45deg, var(--thistle-purple), var(--heather-purple));
             color: white;
             padding: 15px 40px;
             text-decoration: none;
@@ -103,6 +109,10 @@
             z-index: 1000;
             padding: 15px 0;
             transition: all 0.3s ease;
+        }
+
+        .navbar a {
+            font-family: var(--logo-font);
         }
 
         .nav-container {
@@ -229,18 +239,134 @@
         }
 
         .about p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            max-width: 800px;
-            margin: 0 auto;
+                font-size: 1.2rem;
+                line-height: 1.8;
+                max-width: 800px;
+                margin: 0 auto;
         }
 
-        .footer {
-            background: var(--highland-green);
+        .site-footer {
+            background-color: black;
             color: white;
-            text-align: center;
             padding: 40px 20px;
+            font-family: 'Inter', sans-serif;
         }
+
+        .footer-top {
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto 40px auto;
+        }
+
+        .footer-logo h2 {
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .footer-logo span {
+            color: var(--heather-purple);
+        }
+
+        .newsletter-form {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .newsletter-form input[type="email"] {
+            padding: 10px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            width: 250px;
+        }
+
+        .newsletter-form button {
+            background-color: var(--heather-purple);
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            color: black;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: var(--thistle-purple);
+        }
+
+        .disclaimer {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .social-icons {
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--thistle-purple);
+        }
+
+        .footer-columns {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            gap: 30px;
+            text-align: left;
+        }
+
+        .footer-columns div {
+            min-width: 180px;
+        }
+
+        .footer-columns h4 {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .footer-columns ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-columns li {
+            margin-bottom: 8px;
+        }
+
+        .footer-columns a {
+            text-decoration: none;
+            color: var(--heather-purple);
+            transition: color 0.3s ease;
+        }
+
+        .footer-columns a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
 
         .castle-image {
             position: absolute;
@@ -360,7 +486,7 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">Highland Adventures</a>
+            <a href="#" class="logo">Mad Coo Travel</a>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -392,26 +518,26 @@
     </section>
 
     <section id="experiences" class="section">
-        <h2>Highland Experiences</h2>
+        <h2>Experiences</h2>
         <div class="experiences">
             <div class="experience-card">
-                <h3>🏔️ Highland Trekking</h3>
+                <h3>🏔️ Nevis Trekking</h3>
                 <p>Explore the dramatic landscapes of the Scottish Highlands, from ancient glens to misty lochs. Walk in the footsteps of clans and experience the raw beauty of Scotland's wilderness.</p>
             </div>
             <div class="experience-card">
-                <h3>🏰 Castle Adventures</h3>
+                <h3>🏰 Aberdenshire Castles</h3>
                 <p>Discover centuries of Scottish history through magnificent castles. From Edinburgh's fortress to Highland strongholds, each tells a story of battles, romance, and royal intrigue.</p>
             </div>
             <div class="experience-card">
-                <h3>🥃 Whisky Trails</h3>
+                <h3>🍺 Glasgow Bevy</h3>
                 <p>Journey through Scotland's renowned whisky regions. Learn the ancient art of distillation while sampling the finest single malts in authentic distilleries across the country.</p>
             </div>
             <div class="experience-card">
                 <h3>🎵 Cultural Immersion</h3>
-                <p>Experience authentic Scottish culture through traditional music, Highland games, and local festivals. Connect with the soul of Scotland through its people and traditions.</p>
+                <p>Experience authentic Scottish culture through traditional music, Highland games, and local festivals. Connect with the real local Scotland as well as picture perfect Scotland.</p>
             </div>
             <div class="experience-card">
-                <h3>🌊 Island Hopping</h3>
+                <h3>🌊 Calmac Hopping</h3>
                 <p>Explore the mystical beauty of Scottish islands. From Skye's dramatic landscapes to the Hebrides' pristine beaches, discover Scotland's maritime heritage.</p>
             </div>
             <div class="experience-card">
@@ -433,26 +559,84 @@
         </div>
     </section>
 
-    <footer class="footer">
-        <p>&copy; 2025 Highland Adventures. Discover Scotland. Create Memories. Find Your Clan.</p>
+    <footer class="site-footer">
+    <div class="footer-top">
+        <div class="footer-logo">
+        <h2>Mad<span>Coo</span>Travel</h2>
+        </div>
+        <form class="newsletter-form">
+        <input type="email" placeholder="Email" aria-label="Email address" />
+        <button type="submit">Subscribe</button>
+        </form>
+        <p class="disclaimer">The best travel advice and a special discount for your first trip!<br><small>(Unsubscribe anytime. We won’t be annoying!)</small></p>
+        <div class="social-icons">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+
+    <div class="footer-columns">
+        <div>
+        <h4>Destinations</h4>
+        <ul>
+            <li><a href="#">Scotland</a></li>
+            <li><a href="#">Hebrides</a></li>
+            <li><a href="#">Highlands</a></li>
+            <li><a href="#">Isle of Skye</a></li>
+        </ul>
+        </div>
+        <div>
+        <h4>Highland World</h4>
+        <ul>
+            <li><a href="#">How it works</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Our Clan Stories</a></li>
+            <li><a href="#">Reviews</a></li>
+        </ul>
+        </div>
+        <div>
+        <h4>Community</h4>
+        <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">TikTok</a></li>
+            <li><a href="#">YouTube</a></li>
+            <li><a href="#">Clan Stories Blog</a></li>
+        </ul>
+        </div>
+        <div>
+        <h4>Useful Info</h4>
+        <ul>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 Mad Coo Travel. Discover Scotland. Create Memories. Find Yer Clan.</p>
+    </div>
     </footer>
 
+
+
     <script>
-        // Wait for DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
-            // Hamburger menu toggle
+
             const hamburger = document.querySelector('.hamburger');
             const navLinks = document.querySelector('.nav-links');
             
             if (hamburger && navLinks) {
                 hamburger.addEventListener('click', function(e) {
                     e.preventDefault();
-                    console.log('Hamburger clicked!'); // Debug log
                     hamburger.classList.toggle('active');
                     navLinks.classList.toggle('active');
                 });
                 
-                // Close mobile menu when clicking on a link
+
                 document.querySelectorAll('.nav-links a').forEach(link => {
                     link.addEventListener('click', function() {
                         hamburger.classList.remove('active');
@@ -461,7 +645,6 @@
                 });
             }
 
-            // Smooth scrolling for navigation links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -474,7 +657,6 @@
                 });
             });
 
-            // Add subtle animation to experience cards
             const cards = document.querySelectorAll('.experience-card');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -493,7 +675,6 @@
             });
         });
 
-        // Navbar background change on scroll
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (navbar) {
