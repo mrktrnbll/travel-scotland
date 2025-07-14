@@ -44,6 +44,7 @@
 ### LD
 - [ ] Buy domain. [link](https://developers.cloudflare.com/registrar/get-started/register-domain/) - walks through how to buy it.
 - [ ] In part write aspects of the website - such as description of products and that.
+- [ ] Review [stripe](https://stripe.com/gb/pricing#custom-pricing) a web payment service.
 
 ---
 
