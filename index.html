@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highland Adventures - Scotland Travel Experience</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --highland-green: #2D5016;
+            --thistle-purple: #8B6F8B;
+            --heather-purple: #967BB6;
+            --tartan-blue: #1E3A8A;
+            --stone-grey: #6B7280;
+            --mist-white: #F8FAFC;
+            --amber-gold: #D97706;
+            --loch-blue: #1E40AF;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: var(--highland-green);
+            background: linear-gradient(135deg, var(--mist-white) 0%, #E2E8F0 100%);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(150, 123, 182, 0.1) 0%, transparent 50%);
+            animation: mistMove 8s ease-in-out infinite;
+        }
+
+        @keyframes mistMove {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            50% { transform: translateX(20px) translateY(-10px); }
+        }
+
+        .hero-content {
+            z-index: 2;
+            color: var(--mist-white);
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--amber-gold), #F59E0B);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(30, 58, 138, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--mist-white);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--mist-white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--amber-gold);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--mist-white);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .section {
+            padding: 80px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--highland-green);
+        }
+
+        .experiences {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .experience-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border: 3px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--thistle-purple);
+        }
+
+        .experience-card h3 {
+            color: var(--tartan-blue);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .about {
+            background: linear-gradient(135deg, var(--heather-purple), var(--thistle-purple));
+            color: white;
+            margin: 0;
+            max-width: 100%;
+            padding: 80px 20px;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer {
+            background: var(--highland-green);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .castle-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            opacity: 0.6;
+            z-index: 2;
+            animation: none;
+            pointer-events: none;
+        }
+
+
+        .castle-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: none;
+            filter: brightness(0.95) blur(0.2px);
+        }
+
+        .scotland-flag {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            clip-path: inset(0); /* optional fallback */
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .scotland-flag img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(1);
+        }
+
+        @keyframes castleFloatSync {
+            0%, 100% { transform: translateY(0); }
+            25% { transform: translateY(-3px); }
+            75% { transform: translateY(3px); }
+        }
+
+        .thistle-accent {
+            color: var(--thistle-purple);
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .castle-image {
+                width: 280px;
+                height: 210px;
+            }
+            
+            .scotland-flag {
+                width: 300px;
+                height: 230px;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(30, 58, 138, 0.95);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                transition: left 0.3s ease;
+                padding-top: 50px;
+                gap: 40px;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+            
+            .nav-links.active li {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .nav-links.active li:nth-child(1) { transition-delay: 0.1s; }
+            .nav-links.active li:nth-child(2) { transition-delay: 0.2s; }
+            .nav-links.active li:nth-child(3) { transition-delay: 0.3s; }
+            .nav-links.active li:nth-child(4) { transition-delay: 0.4s; }
+            
+            .experiences {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Highland Adventures</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#experiences">Experiences</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="scotland-flag">
+        <img src="assets/scotland-flag.webp" alt="Scotland Flag">
+    </div>
+
+    <div class="castle-image">
+        <img src="assets/edi-castle.webp" alt="Edinburgh Castle" />
+    </div>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Discover Scotland</h1>
+            <p>Join fellow adventurers aged 18-35 for an unforgettable journey through the <span class="thistle-accent">Highlands</span> and beyond</p>
+            <a href="#experiences" class="cta-button">Start Your Adventure</a>
+        </div>
+    </section>
+
+    <section id="experiences" class="section">
+        <h2>Highland Experiences</h2>
+        <div class="experiences">
+            <div class="experience-card">
+                <h3>🏔️ Highland Trekking</h3>
+                <p>Explore the dramatic landscapes of the Scottish Highlands, from ancient glens to misty lochs. Walk in the footsteps of clans and experience the raw beauty of Scotland's wilderness.</p>
+            </div>
+            <div class="experience-card">
+                <h3>🏰 Castle Adventures</h3>
+                <p>Discover centuries of Scottish history through magnificent castles. From Edinburgh's fortress to Highland strongholds, each tells a story of battles, romance, and royal intrigue.</p>
+            </div>
+            <div class="experience-card">
+                <h3>🥃 Whisky Trails</h3>
+                <p>Journey through Scotland's renowned whisky regions. Learn the ancient art of distillation while sampling the finest single malts in authentic distilleries across the country.</p>
+            </div>
+            <div class="experience-card">
+                <h3>🎵 Cultural Immersion</h3>
+                <p>Experience authentic Scottish culture through traditional music, Highland games, and local festivals. Connect with the soul of Scotland through its people and traditions.</p>
+            </div>
+            <div class="experience-card">
+                <h3>🌊 Island Hopping</h3>
+                <p>Explore the mystical beauty of Scottish islands. From Skye's dramatic landscapes to the Hebrides' pristine beaches, discover Scotland's maritime heritage.</p>
+            </div>
+            <div class="experience-card">
+                <h3>🌸 Seasonal Wonders</h3>
+                <p>Experience Scotland's changing seasons - from spring's blooming heather to autumn's golden glens. Each season offers unique beauty and special cultural celebrations.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-content">
+            <h2>Your Scottish Adventure Awaits</h2>
+            <p>
+                We believe that Scotland's true magic lies not just in its breathtaking landscapes, but in the connections you make along the way. 
+                Our carefully curated group experiences bring together like-minded travelers aged 18-35 who share a passion for adventure, culture, and authentic experiences. 
+                From the mist-covered Highlands to the historic streets of Edinburgh, from traditional ceilidh dancing to sampling the finest whisky, 
+                every moment is designed to create lasting memories and lifelong friendships. Join us and discover why Scotland captures hearts like no other destination.
+            </p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Highland Adventures. Discover Scotland. Create Memories. Find Your Clan.</p>
+    </footer>
+
+    <script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hamburger menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (hamburger && navLinks) {
+                hamburger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Hamburger clicked!'); // Debug log
+                    hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+                
+                // Close mobile menu when clicking on a link
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    });
+                });
+            }
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Add subtle animation to experience cards
+            const cards = document.querySelectorAll('.experience-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                if (window.scrollY > 50) {
+                    navbar.style.background = 'rgba(30, 58, 138, 0.95)';
+                } else {
+                    navbar.style.background = 'rgba(30, 58, 138, 0.9)';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
