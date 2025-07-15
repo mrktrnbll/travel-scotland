@@ -53,9 +53,9 @@ window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
     if (navbar) {
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(30, 58, 138, 0.95)';
+            navbar.style.background = 'rgba(30, 58, 138, 1)';
         } else {
-            navbar.style.background = 'rgba(30, 58, 138, 0.9)';
+            navbar.style.background = 'rgba(30, 58, 138, 1)';
         }
     }
 });

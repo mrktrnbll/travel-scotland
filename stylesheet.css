@@ -93,7 +93,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(30, 58, 138, 0.9);
+    background: rgba(30, 58, 138, 1);
     backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 15px 0;
@@ -102,6 +102,8 @@ body {
 
 .navbar img {
     width: 80px;
+    border-radius: 10px;
+    z-index: 1;
     /* aspect-ratio: 3/4; */
 }
 
@@ -110,12 +112,12 @@ body {
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 2vw;
 }
 
 .logo {
@@ -159,7 +161,7 @@ body {
 }
 
 .hamburger.active span:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
+    transform: rotate(-45deg) translate(-7px, 6px);
 }
 
 .hamburger.active span:nth-child(2) {
@@ -167,7 +169,7 @@ body {
 }
 
 .hamburger.active span:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
+    transform: rotate(45deg) translate(-7px, -6px);
 }
 
 .section {
@@ -443,6 +445,7 @@ body {
     
     .nav-links.active {
         left: 0;
+        background: rgba(30, 58, 138, 1);
     }
     
     .nav-links li {
